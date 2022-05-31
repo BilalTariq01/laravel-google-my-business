@@ -81,6 +81,12 @@ class GoogleMyBusiness extends Google_Service
     $v1Update->version = 'v1';
     $v1Update->serviceName = 'mybusinessaccountmanagement';
 
+    $businessInfo = $this;
+    $businessInfo->rootUrl = 'https://mybusinessbusinessinformation.googleapis.com/';
+    $businessInfo->servicePath = '';
+    $businessInfo->version = 'v1';
+    $businessInfo->serviceName = 'mybusinessbusinessinformation';
+
     $this->accounts = new Google_Service_MyBusiness_Accounts_Resource(
         $this,
         $this->serviceName,
@@ -328,6 +334,48 @@ class GoogleMyBusiness extends Google_Service
           )
         )
     );
+
+    $this->business_info_accounts_locations = new Google_Service_Business_Information(
+      $businessInfo,
+      $businessInfo->serviceName,
+      'accounts',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => 'v1/{+parent}/locations',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'orderBy' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'languageCode' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'filter' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
+        )
+      )
+    );
+
     $this->accounts_locations = new Google_Service_MyBusiness_AccountsLocations_Resource(
         $this,
         $this->serviceName,
@@ -1429,6 +1477,59 @@ class Google_Service_Account_Management_Accounts extends Google_Service_Resource
         $params = array_merge($params, $optParams);
         return $this->call('list', array($params), Google_Service_MyBusiness_ListAccountsResponse::class);
     }
+}
+
+/**
+ * The "accounts" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $mybusinessService = new Google_Service_MyBusiness(...);
+ *   $accounts = $mybusinessService->accounts;
+ *  </code>
+ */
+class Google_Service_Business_Information extends Google_Service_Resource
+{
+
+  /**
+   * Lists the locations for the specified account.
+   * (locations.listAccountsLocations)
+   *
+   * @param string $parent The name of the account to fetch locations from. If the
+   * Account is of AccountType PERSONAL, only Locations that are directly owned by
+   * the Account are returned, otherwise it will return all accessible locations
+   * from the Account, either directly or indirectly.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string orderBy Sorting order for the request. Multiple fields
+   * should be comma-separated, following SQL syntax. The default sorting order is
+   * ascending. To specify descending order, a suffix " desc" should be added.
+   * Valid fields to order_by are location_name and store_code. For example:
+   * "location_name, store_code desc" or "location_name" or "store_code desc"
+   * @opt_param string languageCode The BCP 47 code of language to get display
+   * location properties in. If this language is not available, they will be
+   * provided in the language of the location. If neither is available, they will
+   * be provided in English.
+   * @opt_param int pageSize How many locations to fetch per page. Default is 100,
+   * minimum is 1, and maximum page size is 100.
+   * @opt_param string filter A filter constraining the locations to return. The
+   * response includes only entries that match the filter. If `filter` is empty,
+   * then constraints are applied and all locations (paginated) are retrieved for
+   * the requested account.
+   *
+   * For more information about valid fields and example usage, see [Work with
+   * Location Data Guide](https://developers.google.com/my-business/content
+   * /location-data#filter_results_when_listing_locations).
+   * @opt_param string pageToken If specified, it fetches the next `page` of
+   * locations. The page token is returned by previous calls to `ListLocations`
+   * when there were more locations than could fit in the requested page size.
+   * @return Google_Service_MyBusiness_ListLocationsResponse
+   */
+  public function listAccountsLocations($parent, $optParams = array())
+  {
+    $params = array('parent' => $parent);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), Google_Service_MyBusiness_ListLocationsResponse::class);
+  }
 }
 
 /**
