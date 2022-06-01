@@ -60,7 +60,7 @@ class GoogleMyBusiness extends Google_Service
   public $categories;
   public $chains;
   public $googleLocations;
-  
+
 
   /**
    * Constructs the internal representation of the MyBusiness service.
@@ -81,1101 +81,1153 @@ class GoogleMyBusiness extends Google_Service
     $v1Update->version = 'v1';
     $v1Update->serviceName = 'mybusinessaccountmanagement';
 
+    $businessInfo = $this;
+    $businessInfo->rootUrl = 'https://mybusinessbusinessinformation.googleapis.com/';
+    $businessInfo->servicePath = '';
+    $businessInfo->version = 'v1';
+    $businessInfo->serviceName = 'mybusinessbusinessinformation';
+
     $this->accounts = new Google_Service_MyBusiness_Accounts_Resource(
-        $this,
-        $this->serviceName,
-        'accounts',
-        array(
-          'methods' => array(
-            'create' => array(
-              'path' => 'v4/accounts',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'primaryOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'deleteNotifications' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'generateAccountNumber' => array(
-              'path' => 'v4/{+name}:generateAccountNumber',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'get' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'getNotifications' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v4/accounts',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'name' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
-            ),'listRecommendGoogleLocations' => array(
-              'path' => 'v4/{+name}:recommendGoogleLocations',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
-            ),'update' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'validateOnly' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-              ),
-            ),'updateNotifications' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'accounts',
+      array(
+        'methods' => array(
+          'create' => array(
+            'path' => 'v4/accounts',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'primaryOwner' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ), 'deleteNotifications' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'generateAccountNumber' => array(
+            'path' => 'v4/{+name}:generateAccountNumber',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'get' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'getNotifications' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'v4/accounts',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'filter' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'name' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+            ),
+          ), 'listRecommendGoogleLocations' => array(
+            'path' => 'v4/{+name}:recommendGoogleLocations',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+            ),
+          ), 'update' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'validateOnly' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+            ),
+          ), 'updateNotifications' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
-      $this->accounts_list = new Google_Service_Account_Management_Accounts(
-          $v1Update,
-          $v1Update->serviceName,
-          'accounts',
-          array(
-              'methods' => array(
-                  'list' => array(
-                      'path' => 'v1/accounts',
-                      'httpMethod' => 'GET',
-                      'parameters' => array(
-                          'parentAccount' => array(
-                              'location' => 'query',
-                              'type' => 'string',
-                          ),
-                          'pageSize' => array(
-                              'location' => 'query',
-                              'type' => 'integer',
-                          ),
-                          'pageToken' => array(
-                              'location' => 'query',
-                              'type' => 'string',
-                          ),
-                          'filter' => array(
-                              'location' => 'query',
-                              'type' => 'string',
-                          ),
-                      ),
-                  )
-              )
-          )
-      );
-    $this->accounts_admins = new Google_Service_MyBusiness_AccountsAdmins_Resource(
-        $this,
-        $this->serviceName,
-        'admins',
-        array(
-          'methods' => array(
-            'create' => array(
-              'path' => 'v4/{+parent}/admins',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+    $this->accounts_list = new Google_Service_Account_Management_Accounts(
+      $v1Update,
+      $v1Update->serviceName,
+      'accounts',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => 'v1/accounts',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parentAccount' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
-            ),'delete' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
               ),
-            ),'list' => array(
-              'path' => 'v4/{+parent}/admins',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
-            ),'patch' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'filter' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
           )
         )
+      )
+    );
+    $this->accounts_admins = new Google_Service_MyBusiness_AccountsAdmins_Resource(
+      $this,
+      $this->serviceName,
+      'admins',
+      array(
+        'methods' => array(
+          'create' => array(
+            'path' => 'v4/{+parent}/admins',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'delete' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'v4/{+parent}/admins',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'patch' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'PATCH',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
+        )
+      )
     );
     $this->accounts_invitations = new Google_Service_MyBusiness_AccountsInvitations_Resource(
-        $this,
-        $this->serviceName,
-        'invitations',
-        array(
-          'methods' => array(
-            'accept' => array(
-              'path' => 'v4/{+name}:accept',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'decline' => array(
-              'path' => 'v4/{+name}:decline',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v4/{+parent}/invitations',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'targetType' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'invitations',
+      array(
+        'methods' => array(
+          'accept' => array(
+            'path' => 'v4/{+name}:accept',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'decline' => array(
+            'path' => 'v4/{+name}:decline',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'v4/{+parent}/invitations',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'targetType' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
-    $this->accounts_locations = new Google_Service_MyBusiness_AccountsLocations_Resource(
-        $this,
-        $this->serviceName,
-        'locations',
-        array(
-          'methods' => array(
-            'associate' => array(
-              'path' => 'v4/{+name}:associate',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+
+    $this->business_info_accounts_locations = new Google_Service_Business_Information(
+      $businessInfo,
+      $businessInfo->serviceName,
+      'accounts',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => 'v1/{+parent}/locations',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'batchGet' => array(
-              'path' => 'v4/{+name}/locations:batchGet',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'orderBy' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
-            ),'batchGetReviews' => array(
-              'path' => 'v4/{+name}/locations:batchGetReviews',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'languageCode' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
-            ),'clearAssociation' => array(
-              'path' => 'v4/{+name}:clearAssociation',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
               ),
-            ),'create' => array(
-              'path' => 'v4/{+parent}/locations',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'validateOnly' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'requestId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+              'filter' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
-            ),'delete' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
-            ),'fetchVerificationOptions' => array(
-              'path' => 'v4/{+name}:fetchVerificationOptions',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'findMatches' => array(
-              'path' => 'v4/{+name}:findMatches',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'get' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'getFoodMenus' => array(
-              'path' => 'v4/{+name}/foodMenus',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'readMask' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'getGoogleUpdated' => array(
-              'path' => 'v4/{+name}:googleUpdated',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'getServiceList' => array(
-              'path' => 'v4/{+name}/serviceList',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v4/{+parent}/locations',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'orderBy' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'languageCode' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'patch' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'validateOnly' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'attributeMask' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'updateMask' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'reportInsights' => array(
-              'path' => 'v4/{+name}/locations:reportInsights',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'transfer' => array(
-              'path' => 'v4/{+name}:transfer',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'verify' => array(
-              'path' => 'v4/{+name}:verify',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+              'readMask' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
+    );
+
+    $this->accounts_locations = new Google_Service_MyBusiness_AccountsLocations_Resource(
+      $this,
+      $this->serviceName,
+      'locations',
+      array(
+        'methods' => array(
+          'associate' => array(
+            'path' => 'v4/{+name}:associate',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'batchGet' => array(
+            'path' => 'v4/{+name}/locations:batchGet',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'batchGetReviews' => array(
+            'path' => 'v4/{+name}/locations:batchGetReviews',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'clearAssociation' => array(
+            'path' => 'v4/{+name}:clearAssociation',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'create' => array(
+            'path' => 'v4/{+parent}/locations',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'validateOnly' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'requestId' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'delete' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'fetchVerificationOptions' => array(
+            'path' => 'v4/{+name}:fetchVerificationOptions',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'findMatches' => array(
+            'path' => 'v4/{+name}:findMatches',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'get' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'getFoodMenus' => array(
+            'path' => 'v4/{+name}/foodMenus',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'readMask' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'getGoogleUpdated' => array(
+            'path' => 'v4/{+name}:googleUpdated',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'getServiceList' => array(
+            'path' => 'v4/{+name}/serviceList',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'v4/{+parent}/locations',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'orderBy' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'languageCode' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'filter' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'patch' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'PATCH',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'validateOnly' => array(
+                'location' => 'query',
+                'type' => 'boolean',
+              ),
+              'attributeMask' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'updateMask' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'reportInsights' => array(
+            'path' => 'v4/{+name}/locations:reportInsights',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'transfer' => array(
+            'path' => 'v4/{+name}:transfer',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'verify' => array(
+            'path' => 'v4/{+name}:verify',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
+        )
+      )
     );
     $this->accounts_locations_admins = new Google_Service_MyBusiness_AccountsLocationsAdmins_Resource(
-        $this,
-        $this->serviceName,
-        'admins',
-        array(
-          'methods' => array(
-            'create' => array(
-              'path' => 'v4/{+parent}/admins',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'delete' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v4/{+parent}/admins',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'patch' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'admins',
+      array(
+        'methods' => array(
+          'create' => array(
+            'path' => 'v4/{+parent}/admins',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'delete' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'v4/{+parent}/admins',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'patch' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'PATCH',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->accounts_locations_followers = new Google_Service_MyBusiness_AccountsLocationsFollowers_Resource(
-        $this,
-        $this->serviceName,
-        'followers',
-        array(
-          'methods' => array(
-            'getMetadata' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'followers',
+      array(
+        'methods' => array(
+          'getMetadata' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->accounts_locations_localPosts = new Google_Service_MyBusiness_AccountsLocationsLocalPosts_Resource(
-        $this,
-        $this->serviceName,
-        'localPosts',
-        array(
-          'methods' => array(
-            'create' => array(
-              'path' => 'v4/{+parent}/localPosts',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'delete' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'get' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v4/{+parent}/localPosts',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
-            ),'patch' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'updateMask' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'reportInsights' => array(
-              'path' => 'v4/{+name}/localPosts:reportInsights',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'localPosts',
+      array(
+        'methods' => array(
+          'create' => array(
+            'path' => 'v4/{+parent}/localPosts',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'delete' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'get' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'v4/{+parent}/localPosts',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+            ),
+          ), 'patch' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'PATCH',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'updateMask' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'reportInsights' => array(
+            'path' => 'v4/{+name}/localPosts:reportInsights',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->accounts_locations_media = new Google_Service_MyBusiness_AccountsLocationsMedia_Resource(
-        $this,
-        $this->serviceName,
-        'media',
-        array(
-          'methods' => array(
-            'create' => array(
-              'path' => 'v4/{+parent}/media',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'delete' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'get' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v4/{+parent}/media',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
-            ),'patch' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'updateMask' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'startUpload' => array(
-              'path' => 'v4/{+parent}/media:startUpload',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'media',
+      array(
+        'methods' => array(
+          'create' => array(
+            'path' => 'v4/{+parent}/media',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'delete' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'get' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'v4/{+parent}/media',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+            ),
+          ), 'patch' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'PATCH',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'updateMask' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ), 'startUpload' => array(
+            'path' => 'v4/{+parent}/media:startUpload',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->accounts_locations_media_customers = new Google_Service_MyBusiness_AccountsLocationsMediaCustomers_Resource(
-        $this,
-        $this->serviceName,
-        'customers',
-        array(
-          'methods' => array(
-            'get' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v4/{+parent}/media/customers',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
+      $this,
+      $this->serviceName,
+      'customers',
+      array(
+        'methods' => array(
+          'get' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'list' => array(
+            'path' => 'v4/{+parent}/media/customers',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->accounts_locations_questions = new Google_Service_MyBusiness_AccountsLocationsQuestions_Resource(
-        $this,
-        $this->serviceName,
-        'questions',
-        array(
-          'methods' => array(
-            'create' => array(
-              'path' => 'v4/{+parent}/questions',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'delete' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v4/{+parent}/questions',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'orderBy' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'answersPerQuestion' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
-            ),'patch' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'questions',
+      array(
+        'methods' => array(
+          'create' => array(
+            'path' => 'v4/{+parent}/questions',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'delete' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'v4/{+parent}/questions',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'orderBy' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'filter' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'answersPerQuestion' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+            ),
+          ), 'patch' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'PATCH',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->accounts_locations_questions_answers = new Google_Service_MyBusiness_AccountsLocationsQuestionsAnswers_Resource(
-        $this,
-        $this->serviceName,
-        'answers',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => 'v4/{+parent}/answers:delete',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v4/{+parent}/answers',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'orderBy' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
-            ),'upsert' => array(
-              'path' => 'v4/{+parent}/answers:upsert',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'answers',
+      array(
+        'methods' => array(
+          'delete' => array(
+            'path' => 'v4/{+parent}/answers:delete',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'list' => array(
+            'path' => 'v4/{+parent}/answers',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'orderBy' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+            ),
+          ), 'upsert' => array(
+            'path' => 'v4/{+parent}/answers:upsert',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->accounts_locations_reviews = new Google_Service_MyBusiness_AccountsLocationsReviews_Resource(
-        $this,
-        $this->serviceName,
-        'reviews',
-        array(
-          'methods' => array(
-            'deleteReply' => array(
-              'path' => 'v4/{+name}/reply',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'get' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v4/{+parent}/reviews',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'orderBy' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
-            ),'updateReply' => array(
-              'path' => 'v4/{+name}/reply',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'reviews',
+      array(
+        'methods' => array(
+          'deleteReply' => array(
+            'path' => 'v4/{+name}/reply',
+            'httpMethod' => 'DELETE',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'get' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ), 'list' => array(
+            'path' => 'v4/{+parent}/reviews',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'orderBy' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+            ),
+          ), 'updateReply' => array(
+            'path' => 'v4/{+name}/reply',
+            'httpMethod' => 'PUT',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->accounts_locations_verifications = new Google_Service_MyBusiness_AccountsLocationsVerifications_Resource(
-        $this,
-        $this->serviceName,
-        'verifications',
-        array(
-          'methods' => array(
-            'complete' => array(
-              'path' => 'v4/{+name}:complete',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v4/{+parent}/verifications',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
+      $this,
+      $this->serviceName,
+      'verifications',
+      array(
+        'methods' => array(
+          'complete' => array(
+            'path' => 'v4/{+name}:complete',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'list' => array(
+            'path' => 'v4/{+parent}/verifications',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'parent' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->attributes = new Google_Service_MyBusiness_Attributes_Resource(
-        $this,
-        $this->serviceName,
-        'attributes',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'v4/attributes',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'languageCode' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'name' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'country' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'categoryId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'attributes',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => 'v4/attributes',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'languageCode' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'name' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'country' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'categoryId' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->categories = new Google_Service_MyBusiness_Categories_Resource(
-        $this,
-        $this->serviceName,
-        'categories',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'v4/categories',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'searchTerm' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'regionCode' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'languageCode' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'categories',
+      array(
+        'methods' => array(
+          'list' => array(
+            'path' => 'v4/categories',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'searchTerm' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'regionCode' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageToken' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+              'pageSize' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'languageCode' => array(
+                'location' => 'query',
+                'type' => 'string',
               ),
             ),
-          )
+          ),
         )
+      )
     );
     $this->chains = new Google_Service_MyBusiness_Chains_Resource(
-        $this,
-        $this->serviceName,
-        'chains',
-        array(
-          'methods' => array(
-            'get' => array(
-              'path' => 'v4/{+name}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'search' => array(
-              'path' => 'v4/chains:search',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'resultCount' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'chainDisplayName' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
+      $this,
+      $this->serviceName,
+      'chains',
+      array(
+        'methods' => array(
+          'get' => array(
+            'path' => 'v4/{+name}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
             ),
-          )
+          ), 'search' => array(
+            'path' => 'v4/chains:search',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'resultCount' => array(
+                'location' => 'query',
+                'type' => 'integer',
+              ),
+              'chainDisplayName' => array(
+                'location' => 'query',
+                'type' => 'string',
+              ),
+            ),
+          ),
         )
+      )
     );
     $this->googleLocations = new Google_Service_MyBusiness_GoogleLocations_Resource(
-        $this,
-        $this->serviceName,
-        'googleLocations',
-        array(
-          'methods' => array(
-            'report' => array(
-              'path' => 'v4/{+name}:report',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
+      $this,
+      $this->serviceName,
+      'googleLocations',
+      array(
+        'methods' => array(
+          'report' => array(
+            'path' => 'v4/{+name}:report',
+            'httpMethod' => 'POST',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
               ),
-            ),'search' => array(
-              'path' => 'v4/googleLocations:search',
-              'httpMethod' => 'POST',
-              'parameters' => array(),
             ),
-          )
+          ), 'search' => array(
+            'path' => 'v4/googleLocations:search',
+            'httpMethod' => 'POST',
+            'parameters' => array(),
+          ),
         )
+      )
     );
   }
 }
@@ -1398,37 +1450,90 @@ class Google_Service_MyBusiness_Accounts_Resource extends Google_Service_Resourc
 class Google_Service_Account_Management_Accounts extends Google_Service_Resource
 {
 
-    /**
-     * Lists all of the accounts for the authenticated user. This includes all
-     * accounts that the user owns, as well as any accounts for which the user has
-     * management rights. (accounts.listAccounts)
-     *
-     * @param array $optParams Optional parameters.
-     *
-     * @opt_param string filter A filter constraining the accounts to return. The
-     * response includes only entries that match the filter. If `filter` is empty,
-     * then no constraints are applied and all accounts (paginated) are retrieved
-     * for the requested account.
-     *
-     * For example, a request with the filter `type=USER_GROUP` will only return
-     * user groups.
-     * @opt_param string pageToken If specified, the next page of accounts is
-     * retrieved. The `pageToken` is returned when a call to `accounts.list` returns
-     * more results than can fit into the requested page size.
-     * @opt_param string name The resource name of the account for which the list of
-     * directly accessible accounts is to be retrieved. This only makes sense for
-     * Organizations and User Groups. If empty, will return `ListAccounts` for the
-     * authenticated user.
-     * @opt_param int pageSize How many accounts to fetch per page. Default is 20,
-     * minimum is 2, and maximum page size is 20.
-     * @return Google_Service_MyBusiness_ListAccountsResponse
-     */
-    public function listAccounts($optParams = array())
-    {
-        $params = array();
-        $params = array_merge($params, $optParams);
-        return $this->call('list', array($params), Google_Service_MyBusiness_ListAccountsResponse::class);
-    }
+  /**
+   * Lists all of the accounts for the authenticated user. This includes all
+   * accounts that the user owns, as well as any accounts for which the user has
+   * management rights. (accounts.listAccounts)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter A filter constraining the accounts to return. The
+   * response includes only entries that match the filter. If `filter` is empty,
+   * then no constraints are applied and all accounts (paginated) are retrieved
+   * for the requested account.
+   *
+   * For example, a request with the filter `type=USER_GROUP` will only return
+   * user groups.
+   * @opt_param string pageToken If specified, the next page of accounts is
+   * retrieved. The `pageToken` is returned when a call to `accounts.list` returns
+   * more results than can fit into the requested page size.
+   * @opt_param string name The resource name of the account for which the list of
+   * directly accessible accounts is to be retrieved. This only makes sense for
+   * Organizations and User Groups. If empty, will return `ListAccounts` for the
+   * authenticated user.
+   * @opt_param int pageSize How many accounts to fetch per page. Default is 20,
+   * minimum is 2, and maximum page size is 20.
+   * @return Google_Service_MyBusiness_ListAccountsResponse
+   */
+  public function listAccounts($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), Google_Service_MyBusiness_ListAccountsResponse::class);
+  }
+}
+
+/**
+ * The "accounts" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $mybusinessService = new Google_Service_MyBusiness(...);
+ *   $accounts = $mybusinessService->accounts;
+ *  </code>
+ */
+class Google_Service_Business_Information extends Google_Service_Resource
+{
+
+  /**
+   * Lists the locations for the specified account.
+   * (locations.listAccountsLocations)
+   *
+   * @param string $parent The name of the account to fetch locations from. If the
+   * Account is of AccountType PERSONAL, only Locations that are directly owned by
+   * the Account are returned, otherwise it will return all accessible locations
+   * from the Account, either directly or indirectly.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string orderBy Sorting order for the request. Multiple fields
+   * should be comma-separated, following SQL syntax. The default sorting order is
+   * ascending. To specify descending order, a suffix " desc" should be added.
+   * Valid fields to order_by are location_name and store_code. For example:
+   * "location_name, store_code desc" or "location_name" or "store_code desc"
+   * @opt_param string languageCode The BCP 47 code of language to get display
+   * location properties in. If this language is not available, they will be
+   * provided in the language of the location. If neither is available, they will
+   * be provided in English.
+   * @opt_param int pageSize How many locations to fetch per page. Default is 100,
+   * minimum is 1, and maximum page size is 100.
+   * @opt_param string filter A filter constraining the locations to return. The
+   * response includes only entries that match the filter. If `filter` is empty,
+   * then constraints are applied and all locations (paginated) are retrieved for
+   * the requested account.
+   *
+   * For more information about valid fields and example usage, see [Work with
+   * Location Data Guide](https://developers.google.com/my-business/content
+   * /location-data#filter_results_when_listing_locations).
+   * @opt_param string pageToken If specified, it fetches the next `page` of
+   * locations. The page token is returned by previous calls to `ListLocations`
+   * when there were more locations than could fit in the requested page size.
+   * @return Google_Service_MyBusiness_ListLocationsResponse
+   */
+  public function listAccountsLocations($parent, $optParams = array())
+  {
+    $params = array('parent' => $parent);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), Google_Service_MyBusiness_ListLocationsResponse::class);
+  }
 }
 
 /**
@@ -2767,8 +2872,7 @@ class Google_Service_MyBusiness_AcceptInvitationRequest extends Google_Model
 
 class Google_Service_MyBusiness_Account extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $accountName;
   public $accountNumber;
   public $name;
@@ -2858,8 +2962,7 @@ class Google_Service_MyBusiness_Account extends Google_Model
 
 class Google_Service_MyBusiness_AccountState extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $status;
 
 
@@ -2875,8 +2978,7 @@ class Google_Service_MyBusiness_AccountState extends Google_Model
 
 class Google_Service_MyBusiness_AdWordsLocationExtensions extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $adPhone;
 
 
@@ -2892,8 +2994,7 @@ class Google_Service_MyBusiness_AdWordsLocationExtensions extends Google_Model
 
 class Google_Service_MyBusiness_AddressInput extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $mailerContactName;
 
 
@@ -2909,8 +3010,7 @@ class Google_Service_MyBusiness_AddressInput extends Google_Model
 
 class Google_Service_MyBusiness_AddressVerificationData extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $addressType = 'Google_Service_MyBusiness_PostalAddress';
   protected $addressDataType = '';
   public $businessName;
@@ -2936,8 +3036,7 @@ class Google_Service_MyBusiness_AddressVerificationData extends Google_Model
 
 class Google_Service_MyBusiness_Admin extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $adminName;
   public $name;
   public $pendingInvitation;
@@ -2980,8 +3079,7 @@ class Google_Service_MyBusiness_Admin extends Google_Model
 
 class Google_Service_MyBusiness_Answer extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $authorType = 'Google_Service_MyBusiness_Author';
   protected $authorDataType = '';
   public $createTime;
@@ -3043,8 +3141,7 @@ class Google_Service_MyBusiness_Answer extends Google_Model
 
 class Google_Service_MyBusiness_AssociateLocationRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $placeId;
 
 
@@ -3061,8 +3158,7 @@ class Google_Service_MyBusiness_AssociateLocationRequest extends Google_Model
 class Google_Service_MyBusiness_Attribute extends Google_Collection
 {
   protected $collection_key = 'values';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $attributeId;
   protected $repeatedEnumValueType = 'Google_Service_MyBusiness_RepeatedEnumAttributeValue';
   protected $repeatedEnumValueDataType = '';
@@ -3117,8 +3213,7 @@ class Google_Service_MyBusiness_Attribute extends Google_Collection
 class Google_Service_MyBusiness_AttributeMetadata extends Google_Collection
 {
   protected $collection_key = 'valueMetadata';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $attributeId;
   public $displayName;
   public $groupDisplayName;
@@ -3189,8 +3284,7 @@ class Google_Service_MyBusiness_AttributeMetadata extends Google_Collection
 
 class Google_Service_MyBusiness_AttributeValueMetadata extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $displayName;
   public $value;
 
@@ -3215,8 +3309,7 @@ class Google_Service_MyBusiness_AttributeValueMetadata extends Google_Model
 
 class Google_Service_MyBusiness_Attribution extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $profileName;
   public $profilePhotoUrl;
   public $profileUrl;
@@ -3259,8 +3352,7 @@ class Google_Service_MyBusiness_Attribution extends Google_Model
 
 class Google_Service_MyBusiness_Author extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $displayName;
   public $profilePhotoUrl;
   public $type;
@@ -3295,8 +3387,7 @@ class Google_Service_MyBusiness_Author extends Google_Model
 class Google_Service_MyBusiness_BasicMetricsRequest extends Google_Collection
 {
   protected $collection_key = 'metricRequests';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $metricRequestsType = 'Google_Service_MyBusiness_MetricRequest';
   protected $metricRequestsDataType = 'array';
   protected $timeRangeType = 'Google_Service_MyBusiness_TimeRange';
@@ -3324,8 +3415,7 @@ class Google_Service_MyBusiness_BasicMetricsRequest extends Google_Collection
 class Google_Service_MyBusiness_BatchGetLocationsRequest extends Google_Collection
 {
   protected $collection_key = 'locationNames';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $locationNames;
 
 
@@ -3342,8 +3432,7 @@ class Google_Service_MyBusiness_BatchGetLocationsRequest extends Google_Collecti
 class Google_Service_MyBusiness_BatchGetLocationsResponse extends Google_Collection
 {
   protected $collection_key = 'locations';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $locationsType = 'Google_Service_MyBusiness_Location';
   protected $locationsDataType = 'array';
 
@@ -3361,8 +3450,7 @@ class Google_Service_MyBusiness_BatchGetLocationsResponse extends Google_Collect
 class Google_Service_MyBusiness_BatchGetReviewsRequest extends Google_Collection
 {
   protected $collection_key = 'locationNames';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $ignoreRatingOnlyReviews;
   public $locationNames;
   public $orderBy;
@@ -3415,8 +3503,7 @@ class Google_Service_MyBusiness_BatchGetReviewsRequest extends Google_Collection
 class Google_Service_MyBusiness_BatchGetReviewsResponse extends Google_Collection
 {
   protected $collection_key = 'locationReviews';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $locationReviewsType = 'Google_Service_MyBusiness_LocationReview';
   protected $locationReviewsDataType = 'array';
   public $nextPageToken;
@@ -3443,8 +3530,7 @@ class Google_Service_MyBusiness_BatchGetReviewsResponse extends Google_Collectio
 class Google_Service_MyBusiness_BusinessHours extends Google_Collection
 {
   protected $collection_key = 'periods';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $periodsType = 'Google_Service_MyBusiness_TimePeriod';
   protected $periodsDataType = 'array';
 
@@ -3461,8 +3547,7 @@ class Google_Service_MyBusiness_BusinessHours extends Google_Collection
 
 class Google_Service_MyBusiness_CallToAction extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $actionType;
   public $url;
 
@@ -3487,8 +3572,7 @@ class Google_Service_MyBusiness_CallToAction extends Google_Model
 
 class Google_Service_MyBusiness_Category extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $categoryId;
   public $displayName;
 
@@ -3514,8 +3598,7 @@ class Google_Service_MyBusiness_Category extends Google_Model
 class Google_Service_MyBusiness_Chain extends Google_Collection
 {
   protected $collection_key = 'websites';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $chainNamesType = 'Google_Service_MyBusiness_ChainName';
   protected $chainNamesDataType = 'array';
   public $locationCount;
@@ -3560,8 +3643,7 @@ class Google_Service_MyBusiness_Chain extends Google_Collection
 
 class Google_Service_MyBusiness_ChainName extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $displayName;
   public $languageCode;
 
@@ -3586,8 +3668,7 @@ class Google_Service_MyBusiness_ChainName extends Google_Model
 
 class Google_Service_MyBusiness_ChainUrl extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $url;
 
 
@@ -3607,8 +3688,7 @@ class Google_Service_MyBusiness_ClearLocationAssociationRequest extends Google_M
 
 class Google_Service_MyBusiness_CompleteVerificationRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $pin;
 
 
@@ -3624,8 +3704,7 @@ class Google_Service_MyBusiness_CompleteVerificationRequest extends Google_Model
 
 class Google_Service_MyBusiness_CompleteVerificationResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $verificationType = 'Google_Service_MyBusiness_Verification';
   protected $verificationDataType = '';
 
@@ -3642,8 +3721,7 @@ class Google_Service_MyBusiness_CompleteVerificationResponse extends Google_Mode
 
 class Google_Service_MyBusiness_Date extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $day;
   public $month;
   public $year;
@@ -3681,8 +3759,7 @@ class Google_Service_MyBusiness_DeclineInvitationRequest extends Google_Model
 
 class Google_Service_MyBusiness_DimensionalMetricValue extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $metricOption;
   protected $timeDimensionType = 'Google_Service_MyBusiness_TimeDimension';
   protected $timeDimensionDataType = '';
@@ -3717,8 +3794,7 @@ class Google_Service_MyBusiness_DimensionalMetricValue extends Google_Model
 
 class Google_Service_MyBusiness_Dimensions extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $heightPixels;
   public $widthPixels;
 
@@ -3743,8 +3819,7 @@ class Google_Service_MyBusiness_Dimensions extends Google_Model
 
 class Google_Service_MyBusiness_DrivingDirectionMetricsRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $languageCode;
   public $numDays;
 
@@ -3769,8 +3844,7 @@ class Google_Service_MyBusiness_DrivingDirectionMetricsRequest extends Google_Mo
 
 class Google_Service_MyBusiness_Duplicate extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $access;
   public $locationName;
   public $placeId;
@@ -3804,8 +3878,7 @@ class Google_Service_MyBusiness_Duplicate extends Google_Model
 
 class Google_Service_MyBusiness_EmailInput extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $emailAddress;
 
 
@@ -3821,8 +3894,7 @@ class Google_Service_MyBusiness_EmailInput extends Google_Model
 
 class Google_Service_MyBusiness_EmailVerificationData extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $domainName;
   public $isUserNameEditable;
   public $userName;
@@ -3856,8 +3928,7 @@ class Google_Service_MyBusiness_EmailVerificationData extends Google_Model
 
 class Google_Service_MyBusiness_FetchVerificationOptionsRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $contextType = 'Google_Service_MyBusiness_ServiceBusinessContext';
   protected $contextDataType = '';
   public $languageCode;
@@ -3884,8 +3955,7 @@ class Google_Service_MyBusiness_FetchVerificationOptionsRequest extends Google_M
 class Google_Service_MyBusiness_FetchVerificationOptionsResponse extends Google_Collection
 {
   protected $collection_key = 'options';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $optionsType = 'Google_Service_MyBusiness_VerificationOption';
   protected $optionsDataType = 'array';
 
@@ -3902,8 +3972,7 @@ class Google_Service_MyBusiness_FetchVerificationOptionsResponse extends Google_
 
 class Google_Service_MyBusiness_FindMatchingLocationsRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $languageCode;
   public $maxCacheDuration;
   public $numResults;
@@ -3938,8 +4007,7 @@ class Google_Service_MyBusiness_FindMatchingLocationsRequest extends Google_Mode
 class Google_Service_MyBusiness_FindMatchingLocationsResponse extends Google_Collection
 {
   protected $collection_key = 'matchedLocations';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $matchTime;
   protected $matchedLocationsType = 'Google_Service_MyBusiness_MatchedLocation';
   protected $matchedLocationsDataType = 'array';
@@ -3966,8 +4034,7 @@ class Google_Service_MyBusiness_FindMatchingLocationsResponse extends Google_Col
 class Google_Service_MyBusiness_FoodMenus extends Google_Collection
 {
   // protected $collection_key = 'menus';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $name;
   protected $menusType = 'Google_Service_MyBusiness_FoodMenu';
   protected $menusDataType = 'array';
@@ -3994,8 +4061,7 @@ class Google_Service_MyBusiness_FoodMenus extends Google_Collection
 class Google_Service_MyBusiness_FoodMenu extends Google_Collection
 {
   // protected $collection_key = 'sections';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $labelsType = 'Google_Service_MyBusiness_MenuLabel';
   protected $labelsDataType = 'array';
   public $sourceUrl;
@@ -4041,8 +4107,7 @@ class Google_Service_MyBusiness_FoodMenu extends Google_Collection
 class Google_Service_MyBusiness_FoodMenuSection extends Google_Collection
 {
   // protected $collection_key = 'labels';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $labelsType = 'Google_Service_MyBusiness_MenuLabel';
   protected $labelsDataType = 'array';
   protected $itemsType = 'Google_Service_MyBusiness_FoodMenuItem';
@@ -4070,8 +4135,7 @@ class Google_Service_MyBusiness_FoodMenuSection extends Google_Collection
 class Google_Service_MyBusiness_FoodMenuItem extends Google_Collection
 {
   // protected $collection_key = 'labels';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $labelsType = 'Google_Service_MyBusiness_MenuLabel';
   protected $labelsDataType = 'array';
   protected $attributesType = 'Google_Service_MyBusiness_FoodMenuItemAttributes';
@@ -4109,8 +4173,7 @@ class Google_Service_MyBusiness_FoodMenuItem extends Google_Collection
 class Google_Service_MyBusiness_FoodMenuItemOption extends Google_Collection
 {
   // protected $collection_key = 'labels';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $labelsType = 'Google_Service_MyBusiness_MenuLabel';
   protected $labelsDataType = 'array';
   protected $attributesType = 'Google_Service_MyBusiness_FoodMenuItemAttributes';
@@ -4138,8 +4201,7 @@ class Google_Service_MyBusiness_FoodMenuItemOption extends Google_Collection
 class Google_Service_MyBusiness_FoodMenuItemAttributes extends Google_Collection
 {
   // protected $collection_key = 'price';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $priceType = 'Google_Service_MyBusiness_Money';
   protected $priceDataType = '';
   public $spiciness;
@@ -4233,8 +4295,7 @@ class Google_Service_MyBusiness_FoodMenuItemAttributes extends Google_Collection
 class Google_Service_MyBusiness_PortionSize extends Google_Collection
 {
   // protected $collection_key = 'labels';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $quantity;
   protected $unitType = 'Google_Service_MyBusiness_MenuLabel';
   protected $unitDataType = 'array';
@@ -4261,8 +4322,7 @@ class Google_Service_MyBusiness_PortionSize extends Google_Collection
 class Google_Service_MyBusiness_Ingredient extends Google_Collection
 {
   // protected $collection_key = 'labels';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $labelsType = 'Google_Service_MyBusiness_MenuLabel';
   protected $labelsDataType = 'array';
 
@@ -4279,8 +4339,7 @@ class Google_Service_MyBusiness_Ingredient extends Google_Collection
 
 class Google_Service_MyBusiness_MenuLabel extends Google_Collection
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $displayName;
   public $description;
   public $languageCode;
@@ -4315,8 +4374,7 @@ class Google_Service_MyBusiness_MenuLabel extends Google_Collection
 class Google_Service_MyBusiness_NutritionFacts extends Google_Collection
 {
   // protected $collection_key = 'calories';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $caloriesType = 'Google_Service_MyBusiness_CaloriesFact';
   protected $caloriesDataType = '';
   protected $totalFatType = 'Google_Service_MyBusiness_NutritionFact';
@@ -4384,8 +4442,7 @@ class Google_Service_MyBusiness_NutritionFacts extends Google_Collection
 class Google_Service_MyBusiness_CaloriesFact extends Google_Collection
 {
   // protected $collection_key = 'lowerAmount';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $lowerAmount;
   public $upperAmount;
   public $unit;
@@ -4420,8 +4477,7 @@ class Google_Service_MyBusiness_CaloriesFact extends Google_Collection
 class Google_Service_MyBusiness_NutritionFact extends Google_Collection
 {
   // protected $collection_key = 'lowerAmount';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $lowerAmount;
   public $upperAmount;
   public $unit;
@@ -4456,8 +4512,7 @@ class Google_Service_MyBusiness_NutritionFact extends Google_Collection
 class Google_Service_MyBusiness_ServiceList extends Google_Collection
 {
   // protected $collection_key = 'serviceItem';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $name;
   protected $serviceItemsType = 'Google_Service_MyBusiness_ServiceItem';
   protected $serviceItemsDataType = 'array';
@@ -4483,8 +4538,7 @@ class Google_Service_MyBusiness_ServiceList extends Google_Collection
 
 class Google_Service_MyBusiness_ServiceItem extends Google_Collection
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $isOffered;
   protected $structuredServiceItemType = 'Google_Service_MyBusiness_StructuredServiceItem';
   protected $structuredServiceItemDataType = '';
@@ -4531,8 +4585,7 @@ class Google_Service_MyBusiness_ServiceItem extends Google_Collection
 class Google_Service_MyBusiness_StructuredServiceItem extends Google_Collection
 {
   // protected $collection_key = 'serviceTypeId';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $serviceTypeId;
   public $description;
 
@@ -4558,8 +4611,7 @@ class Google_Service_MyBusiness_StructuredServiceItem extends Google_Collection
 class Google_Service_MyBusiness_FreeFormServiceItem extends Google_Collection
 {
   // protected $collection_key = 'serviceTypeId';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $categoryId;
   protected $labelType = 'Google_Service_MyBusiness_Label';
   protected $labelDataType = '';
@@ -4585,8 +4637,7 @@ class Google_Service_MyBusiness_FreeFormServiceItem extends Google_Collection
 
 class Google_Service_MyBusiness_FollowersMetadata extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $count;
   public $name;
 
@@ -4615,8 +4666,7 @@ class Google_Service_MyBusiness_GenerateAccountNumberRequest extends Google_Mode
 
 class Google_Service_MyBusiness_GoogleLocation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $locationType = 'Google_Service_MyBusiness_Location';
   protected $locationDataType = '';
   public $name;
@@ -4651,8 +4701,7 @@ class Google_Service_MyBusiness_GoogleLocation extends Google_Model
 
 class Google_Service_MyBusiness_GoogleUpdatedLocation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $diffMask;
   protected $locationType = 'Google_Service_MyBusiness_Location';
   protected $locationDataType = '';
@@ -4678,8 +4727,7 @@ class Google_Service_MyBusiness_GoogleUpdatedLocation extends Google_Model
 
 class Google_Service_MyBusiness_Invitation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $name;
   public $role;
   protected $targetAccountType = 'Google_Service_MyBusiness_Account';
@@ -4725,8 +4773,7 @@ class Google_Service_MyBusiness_Invitation extends Google_Model
 class Google_Service_MyBusiness_Item extends Google_Collection
 {
   protected $collection_key = 'labels';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $itemId;
   protected $labelsType = 'Google_Service_MyBusiness_Label';
   protected $labelsDataType = 'array';
@@ -4762,8 +4809,7 @@ class Google_Service_MyBusiness_Item extends Google_Collection
 
 class Google_Service_MyBusiness_Label extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $description;
   public $displayName;
   public $languageCode;
@@ -4797,8 +4843,7 @@ class Google_Service_MyBusiness_Label extends Google_Model
 
 class Google_Service_MyBusiness_LatLng extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $latitude;
   public $longitude;
 
@@ -4824,8 +4869,7 @@ class Google_Service_MyBusiness_LatLng extends Google_Model
 class Google_Service_MyBusiness_ListAccountAdminsResponse extends Google_Collection
 {
   protected $collection_key = 'admins';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $adminsType = 'Google_Service_MyBusiness_Admin';
   protected $adminsDataType = 'array';
 
@@ -4843,8 +4887,7 @@ class Google_Service_MyBusiness_ListAccountAdminsResponse extends Google_Collect
 class Google_Service_MyBusiness_ListAccountsResponse extends Google_Collection
 {
   protected $collection_key = 'accounts';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $accountsType = 'Google_Service_MyBusiness_Account';
   protected $accountsDataType = 'array';
   public $nextPageToken;
@@ -4871,8 +4914,7 @@ class Google_Service_MyBusiness_ListAccountsResponse extends Google_Collection
 class Google_Service_MyBusiness_ListAnswersResponse extends Google_Collection
 {
   protected $collection_key = 'answers';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $answersType = 'Google_Service_MyBusiness_Answer';
   protected $answersDataType = 'array';
   public $nextPageToken;
@@ -4908,8 +4950,7 @@ class Google_Service_MyBusiness_ListAnswersResponse extends Google_Collection
 class Google_Service_MyBusiness_ListAttributeMetadataResponse extends Google_Collection
 {
   protected $collection_key = 'attributes';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $attributesType = 'Google_Service_MyBusiness_AttributeMetadata';
   protected $attributesDataType = 'array';
   public $nextPageToken;
@@ -4936,8 +4977,7 @@ class Google_Service_MyBusiness_ListAttributeMetadataResponse extends Google_Col
 class Google_Service_MyBusiness_ListBusinessCategoriesResponse extends Google_Collection
 {
   protected $collection_key = 'categories';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $categoriesType = 'Google_Service_MyBusiness_Category';
   protected $categoriesDataType = 'array';
   public $nextPageToken;
@@ -4973,8 +5013,7 @@ class Google_Service_MyBusiness_ListBusinessCategoriesResponse extends Google_Co
 class Google_Service_MyBusiness_ListCustomerMediaItemsResponse extends Google_Collection
 {
   protected $collection_key = 'mediaItems';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $mediaItemsType = 'Google_Service_MyBusiness_MediaItem';
   protected $mediaItemsDataType = 'array';
   public $nextPageToken;
@@ -5010,8 +5049,7 @@ class Google_Service_MyBusiness_ListCustomerMediaItemsResponse extends Google_Co
 class Google_Service_MyBusiness_ListInvitationsResponse extends Google_Collection
 {
   protected $collection_key = 'invitations';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $invitationsType = 'Google_Service_MyBusiness_Invitation';
   protected $invitationsDataType = 'array';
 
@@ -5029,8 +5067,7 @@ class Google_Service_MyBusiness_ListInvitationsResponse extends Google_Collectio
 class Google_Service_MyBusiness_ListLocalPostsResponse extends Google_Collection
 {
   protected $collection_key = 'localPosts';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $localPostsType = 'Google_Service_MyBusiness_LocalPost';
   protected $localPostsDataType = 'array';
   public $nextPageToken;
@@ -5057,8 +5094,7 @@ class Google_Service_MyBusiness_ListLocalPostsResponse extends Google_Collection
 class Google_Service_MyBusiness_ListLocationAdminsResponse extends Google_Collection
 {
   protected $collection_key = 'admins';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $adminsType = 'Google_Service_MyBusiness_Admin';
   protected $adminsDataType = 'array';
 
@@ -5076,8 +5112,7 @@ class Google_Service_MyBusiness_ListLocationAdminsResponse extends Google_Collec
 class Google_Service_MyBusiness_ListLocationsResponse extends Google_Collection
 {
   protected $collection_key = 'locations';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $locationsType = 'Google_Service_MyBusiness_Location';
   protected $locationsDataType = 'array';
   public $nextPageToken;
@@ -5113,8 +5148,7 @@ class Google_Service_MyBusiness_ListLocationsResponse extends Google_Collection
 class Google_Service_MyBusiness_ListMediaItemsResponse extends Google_Collection
 {
   protected $collection_key = 'mediaItems';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $mediaItemsType = 'Google_Service_MyBusiness_MediaItem';
   protected $mediaItemsDataType = 'array';
   public $nextPageToken;
@@ -5150,8 +5184,7 @@ class Google_Service_MyBusiness_ListMediaItemsResponse extends Google_Collection
 class Google_Service_MyBusiness_ListQuestionsResponse extends Google_Collection
 {
   protected $collection_key = 'questions';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $nextPageToken;
   protected $questionsType = 'Google_Service_MyBusiness_Question';
   protected $questionsDataType = 'array';
@@ -5187,8 +5220,7 @@ class Google_Service_MyBusiness_ListQuestionsResponse extends Google_Collection
 class Google_Service_MyBusiness_ListRecommendedGoogleLocationsResponse extends Google_Collection
 {
   protected $collection_key = 'googleLocations';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $googleLocationsType = 'Google_Service_MyBusiness_GoogleLocation';
   protected $googleLocationsDataType = 'array';
   public $nextPageToken;
@@ -5224,8 +5256,7 @@ class Google_Service_MyBusiness_ListRecommendedGoogleLocationsResponse extends G
 class Google_Service_MyBusiness_ListReviewsResponse extends Google_Collection
 {
   protected $collection_key = 'reviews';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $averageRating;
   public $nextPageToken;
   protected $reviewsType = 'Google_Service_MyBusiness_Review';
@@ -5270,8 +5301,7 @@ class Google_Service_MyBusiness_ListReviewsResponse extends Google_Collection
 class Google_Service_MyBusiness_ListVerificationsResponse extends Google_Collection
 {
   protected $collection_key = 'verifications';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $nextPageToken;
   protected $verificationsType = 'Google_Service_MyBusiness_Verification';
   protected $verificationsDataType = 'array';
@@ -5298,8 +5328,7 @@ class Google_Service_MyBusiness_ListVerificationsResponse extends Google_Collect
 class Google_Service_MyBusiness_LocalPost extends Google_Collection
 {
   protected $collection_key = 'media';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $callToActionType = 'Google_Service_MyBusiness_CallToAction';
   protected $callToActionDataType = '';
   public $createTime;
@@ -5428,8 +5457,7 @@ class Google_Service_MyBusiness_LocalPost extends Google_Collection
 
 class Google_Service_MyBusiness_LocalPostEvent extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $scheduleType = 'Google_Service_MyBusiness_TimeInterval';
   protected $scheduleDataType = '';
   public $title;
@@ -5456,8 +5484,7 @@ class Google_Service_MyBusiness_LocalPostEvent extends Google_Model
 class Google_Service_MyBusiness_LocalPostMetrics extends Google_Collection
 {
   protected $collection_key = 'metricValues';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $localPostName;
   protected $metricValuesType = 'Google_Service_MyBusiness_MetricValue';
   protected $metricValuesDataType = 'array';
@@ -5483,8 +5510,7 @@ class Google_Service_MyBusiness_LocalPostMetrics extends Google_Collection
 
 class Google_Service_MyBusiness_LocalPostOffer extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $couponCode;
   public $redeemOnlineUrl;
   public $termsConditions;
@@ -5518,8 +5544,7 @@ class Google_Service_MyBusiness_LocalPostOffer extends Google_Model
 
 class Google_Service_MyBusiness_LocalPostProduct extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $lowerPriceType = 'Google_Service_MyBusiness_Money';
   protected $lowerPriceDataType = '';
   public $productName;
@@ -5556,8 +5581,7 @@ class Google_Service_MyBusiness_LocalPostProduct extends Google_Model
 class Google_Service_MyBusiness_Location extends Google_Collection
 {
   protected $collection_key = 'priceLists';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $adWordsLocationExtensionsType = 'Google_Service_MyBusiness_AdWordsLocationExtensions';
   protected $adWordsLocationExtensionsDataType = '';
   protected $additionalCategoriesType = 'Google_Service_MyBusiness_Category';
@@ -5796,8 +5820,7 @@ class Google_Service_MyBusiness_Location extends Google_Collection
 
 class Google_Service_MyBusiness_LocationAssociation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $category;
   public $priceListItemId;
 
@@ -5823,8 +5846,7 @@ class Google_Service_MyBusiness_LocationAssociation extends Google_Model
 class Google_Service_MyBusiness_LocationDrivingDirectionMetrics extends Google_Collection
 {
   protected $collection_key = 'topDirectionSources';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $locationName;
   public $timeZone;
   protected $topDirectionSourcesType = 'Google_Service_MyBusiness_TopDirectionSources';
@@ -5859,8 +5881,7 @@ class Google_Service_MyBusiness_LocationDrivingDirectionMetrics extends Google_C
 
 class Google_Service_MyBusiness_LocationKey extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $explicitNoPlaceId;
   public $placeId;
   public $plusPageId;
@@ -5904,8 +5925,7 @@ class Google_Service_MyBusiness_LocationKey extends Google_Model
 class Google_Service_MyBusiness_LocationMetrics extends Google_Collection
 {
   protected $collection_key = 'metricValues';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $locationName;
   protected $metricValuesType = 'Google_Service_MyBusiness_MetricValue';
   protected $metricValuesDataType = 'array';
@@ -5940,8 +5960,7 @@ class Google_Service_MyBusiness_LocationMetrics extends Google_Collection
 
 class Google_Service_MyBusiness_LocationReview extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $name;
   protected $reviewType = 'Google_Service_MyBusiness_Review';
   protected $reviewDataType = '';
@@ -5967,8 +5986,7 @@ class Google_Service_MyBusiness_LocationReview extends Google_Model
 
 class Google_Service_MyBusiness_LocationState extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $canDelete;
   public $canUpdate;
   public $hasPendingEdits;
@@ -6101,8 +6119,7 @@ class Google_Service_MyBusiness_LocationState extends Google_Model
 
 class Google_Service_MyBusiness_MatchedLocation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $isExactMatch;
   protected $locationType = 'Google_Service_MyBusiness_Location';
   protected $locationDataType = '';
@@ -6128,8 +6145,7 @@ class Google_Service_MyBusiness_MatchedLocation extends Google_Model
 
 class Google_Service_MyBusiness_MediaInsights extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $viewCount;
 
 
@@ -6145,8 +6161,7 @@ class Google_Service_MyBusiness_MediaInsights extends Google_Model
 
 class Google_Service_MyBusiness_MediaItem extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $attributionType = 'Google_Service_MyBusiness_Attribution';
   protected $attributionDataType = '';
   public $createTime;
@@ -6266,8 +6281,7 @@ class Google_Service_MyBusiness_MediaItem extends Google_Model
 
 class Google_Service_MyBusiness_MediaItemDataRef extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $resourceName;
 
 
@@ -6283,8 +6297,7 @@ class Google_Service_MyBusiness_MediaItemDataRef extends Google_Model
 
 class Google_Service_MyBusiness_Metadata extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $duplicateType = 'Google_Service_MyBusiness_Duplicate';
   protected $duplicateDataType = '';
   public $mapsUrl;
@@ -6320,8 +6333,7 @@ class Google_Service_MyBusiness_Metadata extends Google_Model
 class Google_Service_MyBusiness_MetricRequest extends Google_Collection
 {
   protected $collection_key = 'options';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $metric;
   public $options;
 
@@ -6347,8 +6359,7 @@ class Google_Service_MyBusiness_MetricRequest extends Google_Collection
 class Google_Service_MyBusiness_MetricValue extends Google_Collection
 {
   protected $collection_key = 'dimensionalValues';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $dimensionalValuesType = 'Google_Service_MyBusiness_DimensionalMetricValue';
   protected $dimensionalValuesDataType = 'array';
   public $metric;
@@ -6384,8 +6395,7 @@ class Google_Service_MyBusiness_MetricValue extends Google_Collection
 
 class Google_Service_MyBusiness_Money extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $currencyCode;
   public $nanos;
   public $units;
@@ -6424,8 +6434,7 @@ class Google_Service_MyBusiness_MybusinessEmpty extends Google_Model
 class Google_Service_MyBusiness_Notifications extends Google_Collection
 {
   protected $collection_key = 'notificationTypes';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $name;
   public $notificationTypes;
   public $topicName;
@@ -6459,8 +6468,7 @@ class Google_Service_MyBusiness_Notifications extends Google_Collection
 
 class Google_Service_MyBusiness_OpenInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $canReopen;
   protected $openingDateType = 'Google_Service_MyBusiness_Date';
   protected $openingDateDataType = '';
@@ -6495,8 +6503,7 @@ class Google_Service_MyBusiness_OpenInfo extends Google_Model
 
 class Google_Service_MyBusiness_OrganizationInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $phoneNumber;
   protected $postalAddressType = 'Google_Service_MyBusiness_PostalAddress';
   protected $postalAddressDataType = '';
@@ -6531,8 +6538,7 @@ class Google_Service_MyBusiness_OrganizationInfo extends Google_Model
 
 class Google_Service_MyBusiness_PhoneInput extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $phoneNumber;
 
 
@@ -6548,8 +6554,7 @@ class Google_Service_MyBusiness_PhoneInput extends Google_Model
 
 class Google_Service_MyBusiness_PhoneVerificationData extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $phoneNumber;
 
 
@@ -6565,8 +6570,7 @@ class Google_Service_MyBusiness_PhoneVerificationData extends Google_Model
 
 class Google_Service_MyBusiness_PlaceInfo extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $name;
   public $placeId;
 
@@ -6592,8 +6596,7 @@ class Google_Service_MyBusiness_PlaceInfo extends Google_Model
 class Google_Service_MyBusiness_Places extends Google_Collection
 {
   protected $collection_key = 'placeInfos';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $placeInfosType = 'Google_Service_MyBusiness_PlaceInfo';
   protected $placeInfosDataType = 'array';
 
@@ -6610,8 +6613,7 @@ class Google_Service_MyBusiness_Places extends Google_Collection
 
 class Google_Service_MyBusiness_PointRadius extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $latlngType = 'Google_Service_MyBusiness_LatLng';
   protected $latlngDataType = '';
   public $radiusKm;
@@ -6638,8 +6640,7 @@ class Google_Service_MyBusiness_PointRadius extends Google_Model
 class Google_Service_MyBusiness_PostalAddress extends Google_Collection
 {
   protected $collection_key = 'recipients';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $addressLines;
   public $administrativeArea;
   public $languageCode;
@@ -6746,8 +6747,7 @@ class Google_Service_MyBusiness_PostalAddress extends Google_Collection
 class Google_Service_MyBusiness_PriceList extends Google_Collection
 {
   protected $collection_key = 'sections';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $labelsType = 'Google_Service_MyBusiness_Label';
   protected $labelsDataType = 'array';
   public $priceListId;
@@ -6792,8 +6792,7 @@ class Google_Service_MyBusiness_PriceList extends Google_Collection
 
 class Google_Service_MyBusiness_Profile extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $description;
 
 
@@ -6810,8 +6809,7 @@ class Google_Service_MyBusiness_Profile extends Google_Model
 class Google_Service_MyBusiness_Question extends Google_Collection
 {
   protected $collection_key = 'topAnswers';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $authorType = 'Google_Service_MyBusiness_Author';
   protected $authorDataType = '';
   public $createTime;
@@ -6892,8 +6890,7 @@ class Google_Service_MyBusiness_Question extends Google_Collection
 
 class Google_Service_MyBusiness_RegionCount extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $count;
   public $label;
   protected $latlngType = 'Google_Service_MyBusiness_LatLng';
@@ -6928,8 +6925,7 @@ class Google_Service_MyBusiness_RegionCount extends Google_Model
 
 class Google_Service_MyBusiness_RelationshipData extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $parentChain;
 
 
@@ -6946,8 +6942,7 @@ class Google_Service_MyBusiness_RelationshipData extends Google_Model
 class Google_Service_MyBusiness_RepeatedEnumAttributeValue extends Google_Collection
 {
   protected $collection_key = 'unsetValues';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $setValues;
   public $unsetValues;
 
@@ -6972,8 +6967,7 @@ class Google_Service_MyBusiness_RepeatedEnumAttributeValue extends Google_Collec
 
 class Google_Service_MyBusiness_ReportGoogleLocationRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $locationGroupName;
   public $reportReasonBadLocation;
   public $reportReasonBadRecommendation;
@@ -7026,8 +7020,7 @@ class Google_Service_MyBusiness_ReportGoogleLocationRequest extends Google_Model
 class Google_Service_MyBusiness_ReportLocalPostInsightsRequest extends Google_Collection
 {
   protected $collection_key = 'localPostNames';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $basicRequestType = 'Google_Service_MyBusiness_BasicMetricsRequest';
   protected $basicRequestDataType = '';
   public $localPostNames;
@@ -7054,8 +7047,7 @@ class Google_Service_MyBusiness_ReportLocalPostInsightsRequest extends Google_Co
 class Google_Service_MyBusiness_ReportLocalPostInsightsResponse extends Google_Collection
 {
   protected $collection_key = 'localPostMetrics';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $localPostMetricsType = 'Google_Service_MyBusiness_LocalPostMetrics';
   protected $localPostMetricsDataType = 'array';
   public $name;
@@ -7091,8 +7083,7 @@ class Google_Service_MyBusiness_ReportLocalPostInsightsResponse extends Google_C
 class Google_Service_MyBusiness_ReportLocationInsightsRequest extends Google_Collection
 {
   protected $collection_key = 'locationNames';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $basicRequestType = 'Google_Service_MyBusiness_BasicMetricsRequest';
   protected $basicRequestDataType = '';
   protected $drivingDirectionsRequestType = 'Google_Service_MyBusiness_DrivingDirectionMetricsRequest';
@@ -7129,8 +7120,7 @@ class Google_Service_MyBusiness_ReportLocationInsightsRequest extends Google_Col
 class Google_Service_MyBusiness_ReportLocationInsightsResponse extends Google_Collection
 {
   protected $collection_key = 'locationMetrics';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $locationDrivingDirectionMetricsType = 'Google_Service_MyBusiness_LocationDrivingDirectionMetrics';
   protected $locationDrivingDirectionMetricsDataType = 'array';
   protected $locationMetricsType = 'Google_Service_MyBusiness_LocationMetrics';
@@ -7157,8 +7147,7 @@ class Google_Service_MyBusiness_ReportLocationInsightsResponse extends Google_Co
 
 class Google_Service_MyBusiness_Review extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $comment;
   public $createTime;
   public $name;
@@ -7239,8 +7228,7 @@ class Google_Service_MyBusiness_Review extends Google_Model
 
 class Google_Service_MyBusiness_ReviewReply extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $comment;
   public $updateTime;
 
@@ -7265,8 +7253,7 @@ class Google_Service_MyBusiness_ReviewReply extends Google_Model
 
 class Google_Service_MyBusiness_Reviewer extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $displayName;
   public $isAnonymous;
   public $profilePhotoUrl;
@@ -7301,8 +7288,7 @@ class Google_Service_MyBusiness_Reviewer extends Google_Model
 class Google_Service_MyBusiness_SearchChainsResponse extends Google_Collection
 {
   protected $collection_key = 'chains';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $chainsType = 'Google_Service_MyBusiness_Chain';
   protected $chainsDataType = 'array';
 
@@ -7319,8 +7305,7 @@ class Google_Service_MyBusiness_SearchChainsResponse extends Google_Collection
 
 class Google_Service_MyBusiness_SearchGoogleLocationsRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $locationType = 'Google_Service_MyBusiness_Location';
   protected $locationDataType = '';
   public $query;
@@ -7356,8 +7341,7 @@ class Google_Service_MyBusiness_SearchGoogleLocationsRequest extends Google_Mode
 class Google_Service_MyBusiness_SearchGoogleLocationsResponse extends Google_Collection
 {
   protected $collection_key = 'googleLocations';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $googleLocationsType = 'Google_Service_MyBusiness_GoogleLocation';
   protected $googleLocationsDataType = 'array';
 
@@ -7375,8 +7359,7 @@ class Google_Service_MyBusiness_SearchGoogleLocationsResponse extends Google_Col
 class Google_Service_MyBusiness_Section extends Google_Collection
 {
   protected $collection_key = 'labels';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $itemsType = 'Google_Service_MyBusiness_Item';
   protected $itemsDataType = 'array';
   protected $labelsType = 'Google_Service_MyBusiness_Label';
@@ -7421,8 +7404,7 @@ class Google_Service_MyBusiness_Section extends Google_Collection
 
 class Google_Service_MyBusiness_ServiceAreaBusiness extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $businessType;
   protected $placesType = 'Google_Service_MyBusiness_Places';
   protected $placesDataType = '';
@@ -7458,8 +7440,7 @@ class Google_Service_MyBusiness_ServiceAreaBusiness extends Google_Model
 
 class Google_Service_MyBusiness_ServiceBusinessContext extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $addressType = 'Google_Service_MyBusiness_PostalAddress';
   protected $addressDataType = '';
 
@@ -7476,8 +7457,7 @@ class Google_Service_MyBusiness_ServiceBusinessContext extends Google_Model
 
 class Google_Service_MyBusiness_SpecialHourPeriod extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $closeTime;
   protected $endDateType = 'Google_Service_MyBusiness_Date';
   protected $endDateDataType = '';
@@ -7532,8 +7512,7 @@ class Google_Service_MyBusiness_SpecialHourPeriod extends Google_Model
 class Google_Service_MyBusiness_SpecialHours extends Google_Collection
 {
   protected $collection_key = 'specialHourPeriods';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $specialHourPeriodsType = 'Google_Service_MyBusiness_SpecialHourPeriod';
   protected $specialHourPeriodsDataType = 'array';
 
@@ -7554,8 +7533,7 @@ class Google_Service_MyBusiness_StartUploadMediaItemDataRequest extends Google_M
 
 class Google_Service_MyBusiness_TargetLocation extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $locationAddress;
   public $locationName;
 
@@ -7580,8 +7558,7 @@ class Google_Service_MyBusiness_TargetLocation extends Google_Model
 
 class Google_Service_MyBusiness_TimeDimension extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $dayOfWeek;
   protected $timeOfDayType = 'Google_Service_MyBusiness_TimeOfDay';
   protected $timeOfDayDataType = '';
@@ -7617,8 +7594,7 @@ class Google_Service_MyBusiness_TimeDimension extends Google_Model
 
 class Google_Service_MyBusiness_TimeInterval extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $endDateType = 'Google_Service_MyBusiness_Date';
   protected $endDateDataType = '';
   protected $endTimeType = 'Google_Service_MyBusiness_TimeOfDay';
@@ -7665,8 +7641,7 @@ class Google_Service_MyBusiness_TimeInterval extends Google_Model
 
 class Google_Service_MyBusiness_TimeOfDay extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $hours;
   public $minutes;
   public $nanos;
@@ -7709,8 +7684,7 @@ class Google_Service_MyBusiness_TimeOfDay extends Google_Model
 
 class Google_Service_MyBusiness_TimePeriod extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $closeDay;
   public $closeTime;
   public $openDay;
@@ -7753,8 +7727,7 @@ class Google_Service_MyBusiness_TimePeriod extends Google_Model
 
 class Google_Service_MyBusiness_TimeRange extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $endTime;
   public $startTime;
 
@@ -7780,8 +7753,7 @@ class Google_Service_MyBusiness_TimeRange extends Google_Model
 class Google_Service_MyBusiness_TopDirectionSources extends Google_Collection
 {
   protected $collection_key = 'regionCounts';
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $dayCount;
   protected $regionCountsType = 'Google_Service_MyBusiness_RegionCount';
   protected $regionCountsDataType = 'array';
@@ -7807,8 +7779,7 @@ class Google_Service_MyBusiness_TopDirectionSources extends Google_Collection
 
 class Google_Service_MyBusiness_TransferLocationRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $toAccount;
 
 
@@ -7824,8 +7795,7 @@ class Google_Service_MyBusiness_TransferLocationRequest extends Google_Model
 
 class Google_Service_MyBusiness_UpsertAnswerRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $answerType = 'Google_Service_MyBusiness_Answer';
   protected $answerDataType = '';
 
@@ -7842,8 +7812,7 @@ class Google_Service_MyBusiness_UpsertAnswerRequest extends Google_Model
 
 class Google_Service_MyBusiness_UrlAttributeValue extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $url;
 
 
@@ -7859,8 +7828,7 @@ class Google_Service_MyBusiness_UrlAttributeValue extends Google_Model
 
 class Google_Service_MyBusiness_Verification extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   public $createTime;
   public $method;
   public $name;
@@ -7903,8 +7871,7 @@ class Google_Service_MyBusiness_Verification extends Google_Model
 
 class Google_Service_MyBusiness_VerificationOption extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $addressDataType = 'Google_Service_MyBusiness_AddressVerificationData';
   protected $addressDataDataType = '';
   protected $emailDataType = 'Google_Service_MyBusiness_EmailVerificationData';
@@ -7950,8 +7917,7 @@ class Google_Service_MyBusiness_VerificationOption extends Google_Model
 
 class Google_Service_MyBusiness_VerifyLocationRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $addressInputType = 'Google_Service_MyBusiness_AddressInput';
   protected $addressInputDataType = '';
   protected $contextType = 'Google_Service_MyBusiness_ServiceBusinessContext';
@@ -8016,8 +7982,7 @@ class Google_Service_MyBusiness_VerifyLocationRequest extends Google_Model
 
 class Google_Service_MyBusiness_VerifyLocationResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
+  protected $internal_gapi_mappings = array();
   protected $verificationType = 'Google_Service_MyBusiness_Verification';
   protected $verificationDataType = '';
 
