@@ -376,6 +376,17 @@ class GoogleMyBusiness extends Google_Service
               ),
             ),
           ),
+          'get' => array(
+            'path' => 'v1/{+name}',
+            'httpMethod' => 'GET',
+            'parameters' => array(
+              'name' => array(
+                'location' => 'path',
+                'type' => 'string',
+                'required' => true,
+              ),
+            ),
+          ),
         )
       )
     );
@@ -1533,6 +1544,21 @@ class Google_Service_Business_Information extends Google_Service_Resource
     $params = array('parent' => $parent);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), Google_Service_MyBusiness_ListLocationsResponse::class);
+  }
+
+  /**
+   * Gets the specified location. Returns `NOT_FOUND` if the location does not
+   * exist. (locations.get)
+   *
+   * @param string $name The name of the location to fetch.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MyBusiness_Location
+   */
+  public function get($name, $optParams = array())
+  {
+    $params = array('name' => $name);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), Google_Service_MyBusiness_Location::class);
   }
 }
 
