@@ -377,7 +377,7 @@ class GoogleMyBusiness extends Google_Service
             ),
           ),
           'get' => array(
-            'path' => 'v1/locations/{+name}',
+            'path' => 'v1/{+name}',
             'httpMethod' => 'GET',
             'parameters' => array(
               'name' => array(
